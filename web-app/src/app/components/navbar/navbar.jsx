@@ -4,7 +4,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -16,8 +15,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBomb, faUserInjured, faHome, faLungsVirus, faViruses, faHeadSideMask,
-         faSyncAlt, faPercent, faBinoculars } from "@fortawesome/free-solid-svg-icons";
+import { faBomb, faMicrochip, faMemory, faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -115,23 +113,13 @@ const useStyles = makeStyles((theme) => ({
 function SwithcCase(props){
   switch(props.value) {
     case 0:
-      return <FontAwesomeIcon icon={faHome} style={{ color: 'red' }} size="2x" />;
+      return <FontAwesomeIcon icon={faMemory} style={{ color: '8ac926' }} size="2x" />;
     case 1:
-      return <FontAwesomeIcon icon={faBomb} style={{ color: 'red' }} size="2x"/>;
+      return <FontAwesomeIcon icon={faMicrochip} style={{ color: '8ac926' }} size="2x"/>;
     case 2:
-      return <FontAwesomeIcon icon={faUserInjured} style={{ color: 'red' }} size="2x" />;
-    case 3:
-      return <FontAwesomeIcon icon={faLungsVirus} style={{ color: 'red' }} size="2x" />;
-    case 4:
-      return <FontAwesomeIcon icon={faViruses} style={{ color: 'red' }} size="2x" />;
-    case 5:
-      return <FontAwesomeIcon icon={faHeadSideMask} style={{ color: 'red' }} size="2x" />;
-    case 6:
-      return <FontAwesomeIcon icon={faSyncAlt} style={{ color: '#3498DB' }} size="2x" />;
-    case 7:
-      return <FontAwesomeIcon icon={faPercent} style={{ color: '#3498DB' }} size="2x" />;
+      return <FontAwesomeIcon icon={faProjectDiagram} style={{ color: '8ac926' }} size="2x" />;
     default:
-      return <FontAwesomeIcon icon={faBinoculars} style={{ color: '#3498DB' }} size="2x" />;
+      return <FontAwesomeIcon icon={faBomb} style={{ color: '#3498DB' }} size="2x" />;
   }
 }
 
@@ -194,29 +182,21 @@ export default function MiniDrawer() {
             </IconButton>
           </div>
           <Divider />
-          <List>
             <Link className={classes.link} to="/">
-              <ListItem button key="home">
-                <ListItemIcon><SwithcCase value={0} /></ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItem>
-            </Link> 
-            <Link className={classes.link} to="memoria">
               <ListItem button key="memoria">
-                <ListItemIcon><SwithcCase value={1} /></ListItemIcon>
+                <ListItemIcon><SwithcCase value={0} /></ListItemIcon>
                 <ListItemText primary="Memoria" />
               </ListItem>
             </Link>
-          </List>
           <Link className={classes.link} to="procesos">
             <ListItem button key="procesos">
-            <ListItemIcon><SwithcCase value={2} /></ListItemIcon>
+            <ListItemIcon><SwithcCase value={1} /></ListItemIcon>
             <ListItemText primary="Procesos" />
             </ListItem>
           </Link>
           <Link className={classes.link} to="arbol">
             <ListItem button key="arbol">
-            <ListItemIcon><SwithcCase value={3} /></ListItemIcon>
+            <ListItemIcon><SwithcCase value={2} /></ListItemIcon>
             <ListItemText primary="Arbol" />
             </ListItem>
           </Link>
@@ -225,9 +205,6 @@ export default function MiniDrawer() {
           <div className={classes.toolbar} />
             <Switch>
               <Route exact path="/" >
-                Home
-              </Route>
-              <Route exact path="/memoria" >
                 <Dashboard />
               </Route>
               <Route exact path="/procesos">
@@ -254,8 +231,7 @@ export default function MiniDrawer() {
               </Route>
             </Switch>
         </main> 
-      </BrowserRouter>
-      
+      </BrowserRouter>  
     </div>
   );
 }

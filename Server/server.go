@@ -7,6 +7,7 @@ import (
 	"fmt" // Imprimir en consola
 	"log"
 	"net/http" // El paquete HTTP
+	"os"
 )
 
 // Servidor HTTP
@@ -19,7 +20,7 @@ func http_server(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 
-	case "POST":
+	case "GET":
 		//Agregar header
 		w.Header().Set("Content-Type", "application/json")
 
@@ -30,16 +31,24 @@ func http_server(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("error")
 			return
 		}
-		data, err := json.Marshal(body)
-		newData := string(data)
-
 		//Tipos de peticiones
-		if r.URL.Path == "/ram" {
-			log.Printf("Sent %s", newData)
-		}
+		if r.URL.Path == "/memory" {
+			dat, errfile := os.ReadFile("/proc/mem_grupo26")
+			fmt.Print(errfile)
 
-		w.WriteHeader(http.StatusCreated)
-		w.Write([]byte(newData))
+			jsonmem := string(dat)
+			w.WriteHeader(http.StatusCreated)
+			w.Write([]byte(jsonmem))
+			return
+		} else if r.URL.Path == "/process" {
+			dat, errfile := os.ReadFile("/proc/mem_grupo26")
+			fmt.Print(errfile)
+
+			jsonmem := string(dat)
+			w.WriteHeader(http.StatusCreated)
+			w.Write([]byte(jsonmem))
+			return
+		}
 
 	default:
 		fmt.Fprintf(w, "Metodo %s no soportado \n", r.Method)

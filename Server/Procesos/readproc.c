@@ -22,11 +22,9 @@ MODULE_AUTHOR("Selvin Lisandro Aragón Pérez");
 MODULE_DESCRIPTION("Modulo para obtener la ram");
 MODULE_VERSION("0.01");
 
-#define FileProc "cpu_201325560"
-struct task_struct *task;
-
 static int my_proc_show(struct seq_file *m, void *v){
     //Procesos
+    struct task_struct *task;
     for_each_process(task){
         seq_printf(m, "{ \"id\": %d , \"name\": \"%s\" , \"status\": \"%ld\", \"fatherid\":\"0\"}",  task->pid, task->comm, task->state);
   	}
@@ -52,7 +50,7 @@ static struct file_operations my_fops = {
 
 static int __init init_p(void){
         struct proc_dir_entry *entry;
-        entry = proc_create("proc_grupo26-module", 0777, NULL, &my_fops);
+        entry = proc_create("proc_grupo26", 0777, NULL, &my_fops);
         if(!entry) {
                 return -1;
         } else {
@@ -62,7 +60,7 @@ static int __init init_p(void){
 }
 
 static void __exit exit_p(void){
-        remove_proc_entry("proc_grupo26-module",NULL);
+        remove_proc_entry("proc_grupo26",NULL);
         printk(KERN_INFO "Sayonara mundo, somos el grupo 26 y este fue el monitor de procesos \n");
 }
 

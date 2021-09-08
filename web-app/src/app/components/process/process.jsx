@@ -6,12 +6,12 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
 
 import Copyright from '../navbar/copyright';
 import Deposits from '../../lib/card';
-import Chart from './chart';
 
-import { memoryData, } from '../../services/server'
+import { processData, } from '../../services/server'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,19 +44,24 @@ const useStyles = makeStyles((theme) => ({
     height: 200,
   },
   fixedHeightChart: {
-    height: 280,
+    height: 433,
+  },
+  divider: {
+    margin: theme.spacing(2, 0),
   },
 }));
 
-export default function Dashboard() {
+export default function DashboardProcess() {
   const classes = useStyles();
-  const [data, setData] = useState({total: 50,
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaperChart = clsx(classes.paper, classes.fixedHeightChart);
+
+  /*const [data, setData] = useState({total: 50,
     consumida: 50,
     porcentaje: 50,});
   const [seconds, setSeconds] = useState(0);
   
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  const fixedHeightPaperChart = clsx(classes.paper, classes.fixedHeightChart);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,11 +75,11 @@ export default function Dashboard() {
         .catch((error) => {
           console.log("T.T Error en el servidor");
           console.log(error);
-        });*/
+        //});
     }, 3000)
     return () => clearInterval(interval);
   }, []);
-
+    */
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -83,30 +88,61 @@ export default function Dashboard() {
           <Grid container spacing={3}>
             <Grid item xs={12} >
               <Paper className={classes.paperTitle} >
-                <h1 align="center">Monitoreo de la memoria</h1>
+                <h1 align="center">Administrador de Procesos</h1>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <Deposits title={"Total de memoria"} fact={data.total} value={0} dimensional={"MB"}/>
+                <Deposits title={"Total de procesos registrados"} fact={5} value={3} dimensional={"MB"}/>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <Deposits title={"Memoria en uso"} fact={data.consumida} value={1} dimensional={"MB"}/>
+                <Deposits title={"Running"} fact={2} value={4} dimensional={"MB"}/>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <Deposits title={"Porcentaje de memoria en uso"} fact={data.porcentaje} value={2} dimensional={"%"}/>
+                <Deposits title={"Sleeping"} fact={9} value={5} dimensional={"%"}/>
               </Paper>
             </Grid>
-            {/* Chart */}
-            <Grid item xs={12} md={12} lg={12}>
-              <Paper className={fixedHeightPaperChart}>
-                <Chart total={data.total} value={data.porcentaje} time={seconds}/>
-              </Paper>
-            </Grid>
+
+            {/*<Grid item lg={12}>*/}
+              {/* Chart */}
+              <Grid item xs={12} md={12} lg={8}>
+                <Paper className={fixedHeightPaperChart}>
+                    Table
+                </Paper>
+              </Grid>
+              <Grid item lg={4}>
+                <Grid item xs={12} md={12} lg={12}>
+                  <Paper className={fixedHeightPaper}>
+                    <Deposits title={"Stopped"} fact={9} value={6} dimensional={"%"}/>
+                  </Paper>
+                </Grid>
+                <Divider className={classes.divider}/>
+                <Grid item  xs={12} md={12} lg={12}>
+                  <Paper className={fixedHeightPaper}>
+                    <Deposits title={"Zombie"} fact={9} value={7} dimensional={"%"}/>
+                  </Paper>
+                </Grid>
+              </Grid>
+
+
+
+            {/*</Grid>*/}
+
+            
+
+
+
+
+
+
+
+
+            
+            
           </Grid>
           <Box pt={4}>
             <Copyright />

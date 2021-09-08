@@ -12,12 +12,12 @@ const API_URI = 'http://:5000';
 export function memoryData(){
     let max = 100;
     let min = 10;
-    data = {
-        total: Math.random() * (max - min) + min,
-        consumida: Math.random() * (max - min) + min,
-        porcentaje: Math.random() * (max - min) + min,
+    return {
+        total: Math.floor(Math.random() * (max - min) + min),
+        consumida: Math.floor(Math.random() * (max - min) + min),
+        porcentaje: Math.floor(Math.random() * (max - min) + min),
     }
-    
+    //return data;
     return axios.get(`${API_URI}/memory`);
 }
 
@@ -39,6 +39,33 @@ export function memoryData(){
  * }
  */
 export function processData(){
+    let max = 100;
+    let min = 10;
+    return {
+        registered:Math.floor(Math.random() * (max - min) + min),
+        running:Math.floor(Math.random() * (max - min) + min),
+        sleeping:Math.floor(Math.random() * (max - min) + min),
+        stopped:Math.floor(Math.random() * (max - min) + min),
+        zombie:Math.floor(Math.random() * (max - min) + min),
+        data: [
+            {
+                PID: Math.floor(Math.random() * (max - min) + min), 
+                name: "string", 
+                estate: "sleeping", 
+                ram: Math.floor(Math.random() * (max - min) + min), 
+                taskCodesize: Math.floor(Math.random() * (max - min) + min), 
+                user: "string"
+            },
+            {
+                PID: Math.floor(Math.random() * (max - min) + min), 
+                name: "otro", 
+                estate: "zombie", 
+                ram: Math.floor(Math.random() * (max - min) + min), 
+                taskCodesize: Math.floor(Math.random() * (max - min) + min), 
+                user: "user1"
+            },
+        ]
+    }
     return axios.get(`${API_URI}/process`);
 }
 

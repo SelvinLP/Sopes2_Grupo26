@@ -33,13 +33,13 @@ export default function Deposits(props) {
 
   useEffect(()=>{
     setValor(props.value);
-  }, []);
+  }, [props.value]);
   return (
     <React.Fragment >
       <div align="center">
         <Title>{props.title}</Title>
         <Typography component="p" variant="h4">
-            {props.fact} MB
+            {props.fact} {props.dimensional}
         </Typography>
         <SelectIcon value={valor} />
       </div>

@@ -20,6 +20,7 @@ import { faBomb, faMicrochip, faMemory, faProjectDiagram } from "@fortawesome/fr
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 import Dashboard from "../memory/dashboard";
+import DashboardProcess from '../process/process';
 /*import StartPage from '../start/StartPage';
 import Regions from '../start/regions';
 import TopDepartament from '../top/top';
@@ -208,7 +209,7 @@ export default function MiniDrawer() {
                 <Dashboard />
               </Route>
               <Route exact path="/procesos">
-                PROCESOS
+                <DashboardProcess />
               </Route>
               <Route exact path="/arbol">
                 ARBOL

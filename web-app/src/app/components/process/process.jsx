@@ -65,7 +65,6 @@ export default function DashboardProcess() {
     zombie: 50,
     data: [],
   });
-  const [dataTable, setSeconds] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,7 +114,7 @@ export default function DashboardProcess() {
                   <TableProcess dataTable={dataCard.data}/>
               </Paper>
             </Grid>
-            <Grid item lg={4}>
+            <Grid item xs={12} lg={4}>
               <Grid item xs={12} md={12} lg={12}>
                 <Paper className={fixedHeightPaper}>
                   <Deposits title={"Stopped"} fact={dataCard.stopped} value={6} dimensional={""}/>

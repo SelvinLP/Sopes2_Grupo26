@@ -70,28 +70,6 @@ export function processData(){
 }
 
 /**
- * data = {
-  id: 'root',
-  name: 'Parent',
-  children: [
-    {
-      id: '1',
-      name: 'Child - 1',
-    },
-    {
-      id: '3',
-      name: 'Child - 3',
-      children: [
-        {
-          id: '4',
-          name: 'Child - 4',
-        },
-      ],
-    },
-  ],
-}
-
-
 data = [
   {
     id: '2',
@@ -107,6 +85,17 @@ data = [
  * 
  */
 export function treeData(){
+  return [
+    { id: 56, father: 62, name:'ssh' },
+    { id: 81, father: 80, name:'ssh'  },
+    { id: 74, father: null, name:'master'  },
+    { id: 76, father: 80, name:'ssh'  },
+    { id: 63, father: 62, name:'ssh'  },
+    { id: 80, father: 86, name:'ssh'  },
+    { id: 87, father: 86, name:'ssh'  },
+    { id: 62, father: 74, name:'ssh'  },
+    { id: 86, father: 74, name:'ssh'  },
+  ];
     return axios.get(`${API_URI}/tree`);
 }
 

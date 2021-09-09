@@ -93,9 +93,16 @@ export function processData(){
 
 
 data = [
+  {
     id: '2',
     name: '',
-    father: id,
+  },
+  {
+    id: '3',
+    name: '',
+    father: 2,
+  }
+    
 ]
  * 
  */

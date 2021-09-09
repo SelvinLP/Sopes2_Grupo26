@@ -41,9 +41,8 @@ func http_server(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte(jsonmem))
 			return
 		} else if r.URL.Path == "/process" {
-			dat, errfile := os.ReadFile("/proc/mem_grupo26")
+			dat, errfile := os.ReadFile("/proc/procs_grupo26")
 			fmt.Print(errfile)
-
 			jsonmem := string(dat)
 			w.WriteHeader(http.StatusCreated)
 			w.Write([]byte(jsonmem))

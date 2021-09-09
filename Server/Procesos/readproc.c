@@ -30,6 +30,7 @@ static int my_proc_show(struct seq_file *m, void *v){
     int32_t sleeping = 0;
     int32_t stopped = 0;
     int32_t zombie = 0;
+    unsigned long rss;
     for_each_process(task){
         get_task_struct(task);
         registered++;
@@ -44,10 +45,18 @@ static int my_proc_show(struct seq_file *m, void *v){
         }else{
             registered--;
         }
-        seq_printf(m, "{ \"id\": %d , \"name\": \"%s\" , \"status\": \"%ld\"} \n",  task->pid, task->comm, task->state);
   	}
-    seq_printf(m, "{ \"registered\": %d , \"running\": %d , \"sleeping\": %d , \"stopped\": %d, \"zombie\": %d}", registered, running, sleeping, stopped, zombie);
-    
+
+    seq_printf(m, "{ \"registered\": %d , \"running\": %d , \"sleeping\": %d , \"stopped\": %d, \"zombie\": %d, data: [", registered, running, sleeping, stopped, zombie);
+
+    for_each_process(task){
+        get_task_struct(task);
+        if (task->mm) {
+            rss = get_mm_rss(task->mm) << PAGE_SHIFT;
+            seq_printf(m, "{\"PID\": %d, \"name\":\"%s\", \"estate\":%lu, \"ram\": %lu, \"taskCodesize\":%lu, \"user\":  \"%d\"},\n",task->pid, task->comm, task->state, rss, task->mm->end_code - task->mm->start_code, task->cred->uid.val);
+        }
+    }
+    seq_printf(m, "] \n }");
     return 0;
 }
 

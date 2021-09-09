@@ -10,6 +10,7 @@ import Divider from '@material-ui/core/Divider';
 
 import Copyright from '../navbar/copyright';
 import Deposits from '../../lib/card';
+import TableProcess from './table';
 
 import { processData, } from '../../services/server'
 
@@ -56,17 +57,20 @@ export default function DashboardProcess() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const fixedHeightPaperChart = clsx(classes.paper, classes.fixedHeightChart);
 
-  /*const [data, setData] = useState({total: 50,
-    consumida: 50,
-    porcentaje: 50,});
-  const [seconds, setSeconds] = useState(0);
-  
-  
+  const [dataCard, setData] = useState({
+    registered: 50,
+    running: 50,
+    sleeping: 50,
+    stopped: 50,
+    zombie: 50,
+    data: [],
+  });
+  const [dataTable, setSeconds] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds(seconds => seconds + 3);
-      setData(memoryData());
+      //setSeconds(seconds => seconds + 3);
+      setData(processData());
       /*memoryData()
         .then((res) => {
           console.log("Datos ", res);
@@ -75,11 +79,11 @@ export default function DashboardProcess() {
         .catch((error) => {
           console.log("T.T Error en el servidor");
           console.log(error);
-        //});
+        //});*/
     }, 3000)
     return () => clearInterval(interval);
   }, []);
-    */
+    //*/
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -93,56 +97,37 @@ export default function DashboardProcess() {
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <Deposits title={"Total de procesos registrados"} fact={5} value={3} dimensional={"MB"}/>
+                <Deposits title={"Total de procesos registrados"} fact={dataCard.registered} value={3} dimensional={""}/>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <Deposits title={"Running"} fact={2} value={4} dimensional={"MB"}/>
+                <Deposits title={"Running"} fact={dataCard.running} value={4} dimensional={""}/>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <Deposits title={"Sleeping"} fact={9} value={5} dimensional={"%"}/>
+                <Deposits title={"Sleeping"} fact={dataCard.sleeping} value={5} dimensional={""}/>
               </Paper>
             </Grid>
-
-            {/*<Grid item lg={12}>*/}
-              {/* Chart */}
-              <Grid item xs={12} md={12} lg={8}>
-                <Paper className={fixedHeightPaperChart}>
-                    Table
+            <Grid item xs={12} md={12} lg={8}>
+              <Paper className={fixedHeightPaperChart}>
+                  <TableProcess dataTable={dataCard.data}/>
+              </Paper>
+            </Grid>
+            <Grid item lg={4}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Paper className={fixedHeightPaper}>
+                  <Deposits title={"Stopped"} fact={dataCard.stopped} value={6} dimensional={""}/>
                 </Paper>
               </Grid>
-              <Grid item lg={4}>
-                <Grid item xs={12} md={12} lg={12}>
-                  <Paper className={fixedHeightPaper}>
-                    <Deposits title={"Stopped"} fact={9} value={6} dimensional={"%"}/>
-                  </Paper>
-                </Grid>
-                <Divider className={classes.divider}/>
-                <Grid item  xs={12} md={12} lg={12}>
-                  <Paper className={fixedHeightPaper}>
-                    <Deposits title={"Zombie"} fact={9} value={7} dimensional={"%"}/>
-                  </Paper>
-                </Grid>
+              <Divider className={classes.divider}/>
+              <Grid item  xs={12} md={12} lg={12}>
+                <Paper className={fixedHeightPaper}>
+                  <Deposits title={"Zombie"} fact={dataCard.zombie} value={7} dimensional={""}/>
+                </Paper>
               </Grid>
-
-
-
-            {/*</Grid>*/}
-
-            
-
-
-
-
-
-
-
-
-            
-            
+            </Grid>  
           </Grid>
           <Box pt={4}>
             <Copyright />

@@ -21,6 +21,7 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 import Dashboard from "../memory/dashboard";
 import DashboardProcess from '../process/process';
+import TreeProcess from '../tree/tree';
 /*import StartPage from '../start/StartPage';
 import Regions from '../start/regions';
 import TopDepartament from '../top/top';
@@ -32,11 +33,11 @@ import Processes from '../Processes/processes';
 import RamPercentaje from '../Ram/percentajedonut';
 import RamPolygon from '../Ram/polygon';
 
-ff595e
-ffca3a
-8ac926
-1982c4
-6a4c93
+ff595e -> rojo
+ffca3a -> Amarillo
+8ac926 -> Verde
+1982c4 -> Celeste
+6a4c93 -> Morado
 */
 const drawerWidth = 240;
 
@@ -212,23 +213,7 @@ export default function MiniDrawer() {
                 <DashboardProcess />
               </Route>
               <Route exact path="/arbol">
-                ARBOL
-              </Route>
-              <Route exact path="/page3">
-                <h1><strong>Ultimos 5 Casos registrados</strong> </h1>
-                Pagina 3
-              </Route>
-              <Route exact path="/page4">
-                Pagina 4
-              </Route>
-              <Route exact path="/page5">
-                Pagina 5
-              </Route>
-              <Route exact path="/page6">
-                Pagina 6
-              </Route>
-              <Route exact path="/page7">
-                Pagina 7
+                <TreeProcess/>
               </Route>
             </Switch>
         </main> 

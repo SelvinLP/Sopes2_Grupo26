@@ -8,7 +8,7 @@ function createData(time, amount) {
 
 export default function Chart(props) {
   const theme = useTheme();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([createData(0, 100)]);
 
   useEffect(() => {
     if(data.length === 20 ){

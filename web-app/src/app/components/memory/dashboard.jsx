@@ -52,7 +52,7 @@ export default function Dashboard() {
   const classes = useStyles();
   const [data, setData] = useState({total: 50,
     consumida: 50,
-    porcentaje: 50,});
+    porcentaje: 75,});
   const [seconds, setSeconds] = useState(0);
   
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);

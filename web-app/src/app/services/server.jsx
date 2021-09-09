@@ -109,5 +109,6 @@ export function treeData(){
  * @returns {} 
  */
 export function killProcess(pid){
+  return alert(`Llamando a kill process ${pid}`)
     return axios.post(`${API_URI}/killprocess`, {pid: pid});
 }

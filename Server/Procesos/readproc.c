@@ -25,9 +25,29 @@ MODULE_VERSION("0.01");
 static int my_proc_show(struct seq_file *m, void *v){
     //Procesos
     struct task_struct *task;
+    int32_t registered = 0;
+    int32_t running = 0;
+    int32_t sleeping = 0;
+    int32_t stopped = 0;
+    int32_t zombie = 0;
     for_each_process(task){
-        seq_printf(m, "{ \"id\": %d , \"name\": \"%s\" , \"status\": \"%ld\", \"fatherid\":\"0\"}",  task->pid, task->comm, task->state);
+        get_task_struct(task);
+        registered++;
+        if(task -> state == TASK_RUNNING || task -> state == TASK_TRACED ){
+            running++;
+        }else if(task -> state == TASK_INTERRUPTIBLE || task -> state == TASK_UNINTERRUPTIBLE ){
+            sleeping++;
+        }else if(task -> state ==  __TASK_STOPPED || task -> state ==  TASK_STOPPED ){
+            stopped++;
+        }else if(task -> state == EXIT_ZOMBIE || task -> state ==  EXIT_DEAD){
+            zombie++;
+        }else{
+            registered--;
+        }
+        seq_printf(m, "{ \"id\": %d , \"name\": \"%s\" , \"status\": \"%ld\"} \n",  task->pid, task->comm, task->state);
   	}
+    seq_printf(m, "{ \"registered\": %d , \"running\": %d , \"sleeping\": %d , \"stopped\": %d, \"zombie\": %d}", registered, running, sleeping, stopped, zombie);
+    
     return 0;
 }
 
@@ -50,7 +70,7 @@ static struct file_operations my_fops = {
 
 static int __init init_p(void){
         struct proc_dir_entry *entry;
-        entry = proc_create("proc_grupo26", 0777, NULL, &my_fops);
+        entry = proc_create("procs_grupo26", 0777, NULL, &my_fops);
         if(!entry) {
                 return -1;
         } else {
@@ -60,7 +80,7 @@ static int __init init_p(void){
 }
 
 static void __exit exit_p(void){
-        remove_proc_entry("proc_grupo26",NULL);
+        remove_proc_entry("procs_grupo26",NULL);
         printk(KERN_INFO "Sayonara mundo, somos el grupo 26 y este fue el monitor de procesos \n");
 }
 

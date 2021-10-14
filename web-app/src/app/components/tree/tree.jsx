@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import IconButton from '@material-ui/core/IconButton';
 
 import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -14,6 +15,7 @@ import TreeItem from '@material-ui/lab/TreeItem';
 
 import Copyright from '../navbar/copyright';
 import { treeData, } from '../../services/server'
+import UpdateIcon from '@material-ui/icons/Update';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   rootTree: {
-    height: 264,
+    height: 110,
     flexGrow: 1,
     maxWidth: 400,
   },
@@ -59,63 +61,68 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const data = [
-    { id: 56, parentId: 62 },
-    { id: 81, parentId: 80 },
-    { id: 74, parentId: null },
-    { id: 76, parentId: 80 },
-    { id: 63, parentId: 62 },
-    { id: 80, parentId: 86 },
-    { id: 87, parentId: 86 },
-    { id: 62, parentId: 74 },
-    { id: 86, parentId: 74 },
-  ];
+const dataLoading = {
+    id: 'root',
+    name: 'Parent',
+    children: [
+      {
+        id: '1',
+        name: 'Loading...',
+      },
+      {
+        id: '3',
+        name: 'Process...',
+        children: [
+          {
+            id: '4',
+            name: 'Child...',
+          },
+        ],
+      },
+    ],
+  };
 
-  
+function crearArbol(data){
+    const idMapping = data.reduce((acc, el, i) => {
+        acc[el.id] = i;
+        return acc;
+    }, {});
+      
+    let root;
+    data.forEach(el => {
+      // nodo raíz
+      if (el.father === null) {
+        root = el;
+        return;
+      }
+      // nodo principal
+      const parentEl = data[idMapping[el.father]];
+      // nodos secundarios
+      parentEl.children = [...(parentEl.children || []), el];
+    });
+
+    return root;
+} 
 
 export default function TreeProcess() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  const [expanded, setExpanded] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+  const [tree, setTree] = useState(dataLoading);
 
-  const handleToggle = (event, nodeIds) => {
-    setExpanded(nodeIds);
-  };
+  const updateData = () => {
+    setTree(crearArbol(treeData()));
+  }
 
-  const handleSelect = (event, nodeIds) => {
-    setSelected(nodeIds);
-  };
-
-  const renderTree = () =>{}
-
-  const [dataCard, setData] = useState({
-    registered: 50,
-    running: 50,
-    sleeping: 50,
-    stopped: 50,
-    zombie: 50,
-    data: [],
-  });
-  const [dataTable, setSeconds] = useState([]);
+  const renderTree = (nodes) => (
+    <TreeItem key={`${nodes.id}`} nodeId={`${nodes.id}`} label={nodes.name}>
+      {Array.isArray(nodes.children) ? nodes.children.map((node) => renderTree(node)) : null }
+    </TreeItem>
+  );
 
   useEffect(() => {
-    /*const interval = setInterval(() => {
-      //setSeconds(seconds => seconds + 3);
-      setData(processData());
-      /*memoryData()
-        .then((res) => {
-          console.log("Datos ", res);
-          setData(res.data);
-        })
-        .catch((error) => {
-          console.log("T.T Error en el servidor");
-          console.log(error);
-        //});*//*
-    }, 3000)
-    return () => clearInterval(interval);*/
+    updateData();
   }, []);
-    //*/
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -127,30 +134,21 @@ export default function TreeProcess() {
                 <h1 align="center">Árbol de Procesos</h1>
               </Paper>
             </Grid>
+            <Grid item align="center">
+              <IconButton onClick={updateData} aria-label="add an update" color="primary">
+                <UpdateIcon fontSize="large" />
+              </IconButton>
+            </Grid>
+            
             <Grid item xs={12} md={12} lg={12}>
               <Paper className={fixedHeightPaper}>
                 <TreeView
                     className={classes.rootTree}
                     defaultCollapseIcon={<ExpandMoreIcon />}
-                    defaultExpandIcon={<ChevronRightIcon />}
-                    expanded={expanded}
-                    selected={selected}
-                    onNodeToggle={handleToggle}
-                    onNodeSelect={handleSelect}
-                    >
-                    <TreeItem nodeId="1" label="amazon-ssm-agen">
-                        <TreeItem nodeId="2" label="dockerd" />
-                        <TreeItem nodeId="3" label="sshd" />
-                        <TreeItem nodeId="4" label="loop4" />
-                    </TreeItem>
-                    <TreeItem nodeId="5" label="bash">
-                        <TreeItem nodeId="6" label="sshd">
-                        <TreeItem nodeId="7" label="sft-server">
-                            <TreeItem nodeId="8" label="sshd" />
-                            <TreeItem nodeId="9" label="sd-pam" />
-                        </TreeItem>
-                        </TreeItem>
-                    </TreeItem>
+                    defaultExpanded={['root']}
+                    defaultExpandIcon={<ChevronRightIcon />}    
+                >   
+                    {renderTree(tree)}
                 </TreeView>
               </Paper>
             </Grid> 

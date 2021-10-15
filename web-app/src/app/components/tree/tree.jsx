@@ -14,7 +14,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
 
 import Copyright from '../navbar/copyright';
-import { treeData, } from '../../services/server'
+import { processData } from '../../services/server'
 import UpdateIcon from '@material-ui/icons/Update';
 
 
@@ -110,7 +110,36 @@ export default function TreeProcess() {
   const [tree, setTree] = useState(dataLoading);
 
   const updateData = () => {
-    setTree(crearArbol(treeData()));
+    processData()
+      .then((res) => {
+        let datosxd = [];
+        let table = res.data.data;
+        let copyTable = res.data.data;
+        for (const key in table) {
+          if(table[key].father !== null ){
+            for (const i in copyTable) {
+              if(copyTable[i].id === table[key].father){
+                datosxd.push({
+                  id: table[key].id,
+                  father: table[key].father,
+                  name: table[key].name,      
+                });
+              }  
+            }
+          }else{
+            datosxd.push({
+              id: table[key].id,
+              father: table[key].father,
+              name: table[key].name,      
+            });
+          }
+        }
+        setTree(crearArbol(datosxd));
+      })
+      .catch((error) => {
+        console.log("T.T Error en el servidor");
+        console.log(error);
+      });
   }
 
   const renderTree = (nodes) => (

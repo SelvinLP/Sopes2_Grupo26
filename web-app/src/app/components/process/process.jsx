@@ -68,21 +68,17 @@ export default function DashboardProcess() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      //setSeconds(seconds => seconds + 3);
-      setData(processData());
-      /*memoryData()
+      processData()
         .then((res) => {
-          console.log("Datos ", res);
           setData(res.data);
         })
         .catch((error) => {
           console.log("T.T Error en el servidor");
           console.log(error);
-        //});*/
+        });
     }, 3000)
     return () => clearInterval(interval);
   }, []);
-    //*/
   return (
     <div className={classes.root}>
       <CssBaseline />

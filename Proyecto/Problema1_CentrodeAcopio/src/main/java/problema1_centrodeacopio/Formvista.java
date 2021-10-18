@@ -701,17 +701,16 @@ public class Formvista extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            System.out.println("SISTEMA PAUSADO");
-            Thread.sleep(60000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Formvista.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("SISTEMA PAUSADO");
+        pausa = !pausa;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public static boolean pausa = false; 
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -750,6 +749,9 @@ public class Formvista extends javax.swing.JFrame {
                     public void run() {
                         while(true){
                             try {
+                                while(pausa){
+                                    Thread.sleep(1000);
+                                }
                                 int prod_cjgrande = Integer.parseInt(vista.jTextField1.getText());
                                 int num_grad = (int)Math.floor(Math.random()*prod_cjgrande+1);
                                 Thread.sleep(num_grad);
@@ -771,6 +773,9 @@ public class Formvista extends javax.swing.JFrame {
                     public void run() {
                         while(true){
                             try {
+                                while(pausa){
+                                    Thread.sleep(1000);
+                                }
                                 int prod_cjpeque = Integer.parseInt(vista.jTextField2.getText());
                                 int num_peque = (int)Math.floor(Math.random()*prod_cjpeque+1);
                                 Thread.sleep(num_peque);
@@ -792,6 +797,9 @@ public class Formvista extends javax.swing.JFrame {
                     public void run() {
                         while(true){
                             try {
+                                while(pausa){
+                                    Thread.sleep(1000);
+                                }
                                 int recoger_cjgrande = Integer.parseInt(vista.jTextField3.getText());
                                 int num_grad_rec = (int)Math.floor(Math.random()*recoger_cjgrande+1);
                                 Thread.sleep(num_grad_rec);
@@ -813,6 +821,9 @@ public class Formvista extends javax.swing.JFrame {
                     public void run() {
                         while(true){
                             try {
+                                while(pausa){
+                                    Thread.sleep(1000);
+                                }
                                 int recoger_cjpeque = Integer.parseInt(vista.jTextField4.getText());
                                 int num_peque_rec = (int)Math.floor(Math.random()*recoger_cjpeque+1);
                                 Thread.sleep(num_peque_rec);

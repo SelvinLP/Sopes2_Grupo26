@@ -4,6 +4,9 @@
  */
 package problema1_centrodeacopio;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author selvi
@@ -82,6 +85,7 @@ public class Formvista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(99, 55, 0));
 
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -95,6 +99,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -108,6 +113,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -121,6 +127,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel6.setBackground(new java.awt.Color(153, 153, 153));
         jPanel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -134,6 +141,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel7.setBackground(new java.awt.Color(153, 153, 153));
         jPanel7.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -147,6 +155,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel8.setBackground(new java.awt.Color(153, 153, 153));
         jPanel8.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -160,6 +169,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel9.setBackground(new java.awt.Color(153, 153, 153));
         jPanel9.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -173,6 +183,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel10.setBackground(new java.awt.Color(153, 153, 153));
         jPanel10.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -186,6 +197,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel11.setBackground(new java.awt.Color(153, 153, 153));
         jPanel11.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -199,6 +211,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel12.setBackground(new java.awt.Color(153, 153, 153));
         jPanel12.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -269,6 +282,7 @@ public class Formvista extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(99, 55, 0));
 
+        jPanel18.setBackground(new java.awt.Color(153, 153, 153));
         jPanel18.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
@@ -282,6 +296,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel22.setBackground(new java.awt.Color(153, 153, 153));
         jPanel22.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
@@ -295,6 +310,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel13.setBackground(new java.awt.Color(153, 153, 153));
         jPanel13.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -308,6 +324,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel17.setBackground(new java.awt.Color(153, 153, 153));
         jPanel17.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -321,6 +338,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel15.setBackground(new java.awt.Color(153, 153, 153));
         jPanel15.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
@@ -334,6 +352,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel14.setBackground(new java.awt.Color(153, 153, 153));
         jPanel14.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -347,6 +366,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel21.setBackground(new java.awt.Color(153, 153, 153));
         jPanel21.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
@@ -360,6 +380,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel16.setBackground(new java.awt.Color(153, 153, 153));
         jPanel16.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -373,6 +394,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel19.setBackground(new java.awt.Color(153, 153, 153));
         jPanel19.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
@@ -386,6 +408,7 @@ public class Formvista extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jPanel20.setBackground(new java.awt.Color(153, 153, 153));
         jPanel20.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
@@ -447,6 +470,11 @@ public class Formvista extends javax.swing.JFrame {
         );
 
         jButton1.setText("Pausa");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
         jLabel6.setText("Interacciones");
@@ -472,18 +500,18 @@ public class Formvista extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Algerian", 0, 12)); // NOI18N
         jLabel13.setText("Pequeñas");
 
-        jTextField1.setText("1000");
+        jTextField1.setText("5000");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("1000");
+        jTextField2.setText("5000");
 
-        jTextField3.setText("1000");
+        jTextField3.setText("5000");
 
-        jTextField4.setText("1000");
+        jTextField4.setText("5000");
 
         jLabel14.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         jLabel14.setText("Recogidas");
@@ -672,6 +700,15 @@ public class Formvista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            System.out.println("SISTEMA PAUSADO");
+            Thread.sleep(60000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Formvista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -715,9 +752,8 @@ public class Formvista extends javax.swing.JFrame {
                             try {
                                 int prod_cjgrande = Integer.parseInt(vista.jTextField1.getText());
                                 int num_grad = (int)Math.floor(Math.random()*prod_cjgrande+1);
-                                System.out.println("Hilo 1: " + num_grad);
                                 Thread.sleep(num_grad);
-                                TipoCaja caja = new TipoCaja(true, estante, vista);
+                                TipoCaja caja = new TipoCaja(1, estante, vista);
                                 caja.start();
                             }catch (InterruptedException e) {
                                 System.out.println(e);
@@ -737,8 +773,9 @@ public class Formvista extends javax.swing.JFrame {
                             try {
                                 int prod_cjpeque = Integer.parseInt(vista.jTextField2.getText());
                                 int num_peque = (int)Math.floor(Math.random()*prod_cjpeque+1);
-                                System.out.println("Hilo 2: " + num_peque);
                                 Thread.sleep(num_peque);
+                                TipoCaja caja = new TipoCaja(2, estante, vista);
+                                caja.start();
                             }catch (InterruptedException e) {
                                 System.out.println(e);
                             }
@@ -757,8 +794,9 @@ public class Formvista extends javax.swing.JFrame {
                             try {
                                 int recoger_cjgrande = Integer.parseInt(vista.jTextField3.getText());
                                 int num_grad_rec = (int)Math.floor(Math.random()*recoger_cjgrande+1);
-                                System.out.println("Hilo 3: " + num_grad_rec);
                                 Thread.sleep(num_grad_rec);
+                                TipoCaja caja = new TipoCaja(3, estante, vista);
+                                caja.start();
                             }catch (InterruptedException e) {
                                 System.out.println(e);
                             }
@@ -777,8 +815,9 @@ public class Formvista extends javax.swing.JFrame {
                             try {
                                 int recoger_cjpeque = Integer.parseInt(vista.jTextField4.getText());
                                 int num_peque_rec = (int)Math.floor(Math.random()*recoger_cjpeque+1);
-                                System.out.println("Hilo 4: " + num_peque_rec);
                                 Thread.sleep(num_peque_rec);
+                                TipoCaja caja = new TipoCaja(4, estante, vista);
+                                caja.start();
                             }catch (InterruptedException e) {
                                 System.out.println(e);
                             }
@@ -794,7 +833,7 @@ public class Formvista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -805,41 +844,41 @@ public class Formvista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    public static javax.swing.JLabel jLabel22;
+    public static javax.swing.JLabel jLabel23;
+    public static javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
+    public static javax.swing.JPanel jPanel10;
+    public static javax.swing.JPanel jPanel11;
+    public static javax.swing.JPanel jPanel12;
+    public static javax.swing.JPanel jPanel13;
+    public static javax.swing.JPanel jPanel14;
+    public static javax.swing.JPanel jPanel15;
+    public static javax.swing.JPanel jPanel16;
+    public static javax.swing.JPanel jPanel17;
+    public static javax.swing.JPanel jPanel18;
+    public static javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    public javax.swing.JPanel jPanel3;
-    public javax.swing.JPanel jPanel4;
-    public javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    public static javax.swing.JPanel jPanel20;
+    public static javax.swing.JPanel jPanel21;
+    public static javax.swing.JPanel jPanel22;
+    public static javax.swing.JPanel jPanel3;
+    public static javax.swing.JPanel jPanel4;
+    public static javax.swing.JPanel jPanel5;
+    public static javax.swing.JPanel jPanel6;
+    public static javax.swing.JPanel jPanel7;
+    public static javax.swing.JPanel jPanel8;
+    public static javax.swing.JPanel jPanel9;
+    public static javax.swing.JTextField jTextField1;
+    public static javax.swing.JTextField jTextField2;
+    public static javax.swing.JTextField jTextField3;
+    public static javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

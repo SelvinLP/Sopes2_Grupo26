@@ -4,46 +4,39 @@
  */
 package Barbero;
     
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Cristian
  */
 public class Cliente implements Runnable {
-    Barberia b;
-    Barbero barbero;
-    int posList;
+    Barberia barberia;
     
-    Cliente(Barberia b, Barbero barbero, int numCliente){
-        System.out.println("Bienvenido");
-        this.barbero =  barbero;
-        this.b = b;
-        this.posList = numCliente;
-        
-        this.b.clientesEspera++;
-        //Agregar cliente a lista de espera
+    String name;
+    
+    Cliente(Barberia b){
+        this.barberia = b;
     }
 
-    @Override
-    public void run() {
-        if(this.barbero.duerme){
-            this.despertar();
-        }
-        
-        while(true){
-            if(Thread.currentThread().isAlive()){
-                if(!b.silla){
-                    b.cortarCabello(this.posList);
-                    break;
-                }
-            }
-        }
+    public String getName(){
+        return this.name;
     }
     
-    public void despertar(){
-        System.out.println("Despertando al barbero");
-        synchronized(this.barbero){
-            this.barbero.notify();
-        }
+    public void setName(String name){
+        this.name = name;
+    }
+            
+    @Override
+    public void run() {
+        iraCortarCabello();
+    }
+    
+    private synchronized void iraCortarCabello(){
+        barberia.add(this);
     }
     
     

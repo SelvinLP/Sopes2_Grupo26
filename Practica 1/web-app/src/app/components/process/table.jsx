@@ -26,11 +26,24 @@ export default function TableProcess(props) {
     let auxData = [];
     for (const key in props.dataTable) {
       const element = props.dataTable[key];
-      element.id = key;
-      auxData.push(element);
+      element.idT = key;
+      if(element.father !== null)
+        auxData.push(element);
     }
     setDatos(auxData);
   }, [props.dataTable])
+
+  const killProcessTerminal = (id) =>{
+    console.log(id);
+    killProcess(id)
+      .then((res) => {
+        console.log(res);
+        alert(res.data.res);
+      })
+      .catch((error)=>{
+        alert("no se pudo eliminar el proceso")
+      })
+  }
 
   return (
     <React.Fragment>
@@ -49,15 +62,15 @@ export default function TableProcess(props) {
         </TableHead>
         <TableBody>
           {datos.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.PID}</TableCell>
+            <TableRow key={row.idT}>
+              <TableCell>{row.id}</TableCell>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.estate}</TableCell>
               <TableCell>{row.ram}</TableCell>
               <TableCell>{row.taskCodesize}</TableCell>
               <TableCell>{row.user}</TableCell>
               <TableCell>
-                <IconButton onClick={() => { killProcess(row.PID); }} aria-label="delete" className={classes.margin} size="small">
+                <IconButton onClick={() => { killProcessTerminal(row.id); }} aria-label="delete" className={classes.margin} size="small">
                   <FontAwesomeIcon icon={faSkull} style={{ color: 'FF6914' }} size="1x" />
                 </IconButton>
               </TableCell>

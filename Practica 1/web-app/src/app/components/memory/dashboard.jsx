@@ -61,16 +61,14 @@ export default function Dashboard() {
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 3);
-      setData(memoryData());
-      /*memoryData()
+      memoryData()
         .then((res) => {
-          console.log("Datos ", res);
           setData(res.data);
         })
         .catch((error) => {
           console.log("T.T Error en el servidor");
           console.log(error);
-        });*/
+      });
     }, 3000)
     return () => clearInterval(interval);
   }, []);

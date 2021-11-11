@@ -1,11 +1,26 @@
+docker build . -t selvinlp/practica_frontso2g26:latest
+docker image push selvinlp/practica_frontso2g26:latest
+
+docker build . -t selvinlp/practica_backso2g26:latest
+docker image push selvinlp/practica_backso2g26:latest
+
 gcloud container clusters get-credentials so2g26
 gcloud container clusters create so2g26 --num-nodes=1
 
 gcloud container clusters get-credentials so2g26 --zone us-central1-c --project ayd2-327723
 kubectl get services
 kubectl apply -f load-balancer-front-g26.yaml
-kubectl expose deployment load-balancer-front-g26 --type=LoadBalancer --name=service-front-g26
+kubectl expose deployment load-balancer-front-sopes2g26 --type=LoadBalancer --name=service-front-g26
+kubectl get svc
+
+gcloud container clusters get-credentials so2g26 --zone us-central1-c --project ayd2-327723
+kubectl get services
+kubectl apply -f load-balancer-back-g26.yaml
+kubectl expose deployment load-balancer-back-sopes2g26 --type=LoadBalancer --name=service-back-g26 --load-balancer-ip=35.209.118.91
 kubectl get svc
 
 kubectl delete deployments load-balancer-front-g26
 kubectl delete svc service-front-g26
+
+kubectl delete deployments load-balancer-back-g26
+kubectl delete svc service-back-g26

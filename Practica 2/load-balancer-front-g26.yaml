@@ -15,7 +15,7 @@ spec:
           app.kubernetes.io/name: load-balancer-front-sopes2g26
     spec:
       containers:
-      - image: selvinlp/serviciofrontend:latest
-        name: frontbalancer2
+      - image: selvinlp/practica_frontso2g26:latest
+        name: frontbalancer
         ports:
         - containerPort: 80

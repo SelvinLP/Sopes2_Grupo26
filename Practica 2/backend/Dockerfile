@@ -8,4 +8,4 @@ RUN npm install
 COPY . /src/app/
 
 EXPOSE 3000
-CMD ["node", "src/index.js"]
+CMD ["node", "index.js"]

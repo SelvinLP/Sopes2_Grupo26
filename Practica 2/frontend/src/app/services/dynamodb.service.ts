@@ -17,7 +17,7 @@ export class DynamodbService {
     'Content-Type':'application/json'
   });
 
-  prefijo_url = 'http://localhost:3000/';
+  prefijo_url = 'http://34.121.57.68:3000/';
 
   //CREAR USUARIO
   newuser(carnet:string, cui:string, nombre:string, correo:string, fechanac:string){

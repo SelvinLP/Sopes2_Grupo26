@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <br>
+        <h4>Registro de Actividad</h4>
+        <br>
+        <form>
+          <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" name="fechai" [(ngModel)]="fechai" placeholder="Fecha de Inicio">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="fechaf" [(ngModel)]="fechaf" placeholder="Fecha de Fin">
+            </div>
+          </div>
+          <br>
+          <input type="text" class="form-control" name="tipo" [(ngModel)]="Tipo" placeholder="Tipo de Actividad">
+          <br>
+          <button type="button" style="width:100%; height:100%; border: 1px solid" (click)="newactividad()" class="btn btn-success">Crear Actividad</button>
+        </form>
+        <br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Fecha de Inicio</th>
+              <th scope="col">Fecha de Fin</th>
+              <th scope="col">Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listaactividades;">
+                <td>{{item.fechai}}</td>
+                <td>{{item.fechaf}}</td>
+                <td>{{item.tipo}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="col-sm">
+        <br>
+        <h4>Registro de Nota</h4>
+        <br>
+        <form>
+          <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" name="carnet" [(ngModel)]="carnet" placeholder="Carnet">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="nota" [(ngModel)]="nota" placeholder="Nota">
+            </div>
+          </div>
+          <br>
+          <input type="text" class="form-control" name="actividad" [(ngModel)]="actividad" placeholder="Tipo de Actividad">
+          <br>
+          <button type="button" style="width:100%; height:100%; border: 1px solid" (click)="newnota()" class="btn btn-success">Ingresar Nota</button>
+        </form>
+        <br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Estudiante</th>
+              <th scope="col">Nota</th>
+              <th scope="col">Actividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listanotas;">
+                <td>{{item.estudiante}}</td>
+                <td>{{item.nota}}</td>
+                <td>{{item.actividad}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="col-sm">
+        <br>
+        <h4>Ver notas por actividad</h4>
+        <br>
+        <form>
+          <input type="text" class="form-control" name="actividadV" [(ngModel)]="actividadV" placeholder="Tipo de Actividad">
+          <br>
+          <button type="button" style="width:100%; height:100%; border: 1px solid" (click)="vernota()" class="btn btn-success">Ver notas</button>
+        </form>
+        <br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Estudiante</th>
+              <th scope="col">Nota</th>
+              <th scope="col">Actividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listanotasV;">
+                <td>{{item.estudiante}}</td>
+                <td>{{item.nota}}</td>
+                <td>{{item.actividad}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    

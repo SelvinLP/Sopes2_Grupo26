@@ -1,0 +1,11 @@
+gcloud container clusters get-credentials so2g26
+gcloud container clusters create so2g26 --num-nodes=1
+
+gcloud container clusters get-credentials so2g26 --zone us-central1-c --project ayd2-327723
+kubectl get services
+kubectl apply -f load-balancer-front-g26.yaml
+kubectl expose deployment load-balancer-front-g26 --type=LoadBalancer --name=service-front-g26
+kubectl get svc
+
+kubectl delete deployments load-balancer-front-g26
+kubectl delete svc service-front-g26

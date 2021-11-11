@@ -1,0 +1,36 @@
+Instalación y configuración de Prometheus y Grafana
+
+# Crear namespace para prometheus
+kubectl create namespace prometheus
+
+#Ver los namespaces
+kubectl get ns
+
+#Instalar el monitor de helm por medio del repositorio
+helm repo add monitor https://charts.helm.sh/stable
+
+#Actualizar repositorio
+helm repo update
+
+#instalar prometheus operator
+helm install prometheus monitor/prometheus-operator --namespace prometheus
+
+#Ver los pods de prometheus
+kubectl get pods -n prometheus 
+
+kubectl port-forward -n prometheus [select name pod] 9090
+
+# Configuración de contraseñas
+# Obtener las credenciales
+kubectl get secret --namespace prometheus prometheus-grafana -o yaml
+
+# admin-password
+# admin-user
+openssl base64 -d
+# decodificar las credenciales
+echo "[user]" | base64 --decode 	#admin
+echo "[password]" | base64 --decode	#prom-operator
+
+#Grafana
+kubectl port-forward -n prometheus [select name pod] 3000
+

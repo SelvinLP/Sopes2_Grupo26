@@ -1,3 +1,6 @@
+docker build . -t selvinlp/practica_frontso2g26:1.0
+docker image push selvinlp/practica_frontso2g26:1.0
+
 docker build . -t selvinlp/practica_frontso2g26:latest
 docker image push selvinlp/practica_frontso2g26:latest
 
@@ -25,4 +28,11 @@ kubectl delete svc service-front-g26
 kubectl delete deployments deploy-back-sopes2g26
 kubectl delete svc service-back-g26
 
-kubectl rollout undo deployment/deploy-back-sopes2g26
+kubectl set image deployment/deploy-front-sopes2g26 frontbalancer=selvinlp/practica_frontso2g26:latest
+
+kubectl rollout undo deployment/deploy-front-sopes2g26 --to-revision=3
+
+kubectl rollout history deployment/deploy-front-sopes2g26
+kubectl get deployments
+kubectl get services
+kubectl describe pods
